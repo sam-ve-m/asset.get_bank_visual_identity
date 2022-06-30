@@ -47,8 +47,8 @@ async def test_get_logo_url_when_there_is_cache(
     )
     assert type(result) == str
     assert cache_mock.called
-    assert logo_exists_mock.not_called
-    assert generate_url_mock.not_called
+    assert not logo_exists_mock.called
+    assert not generate_url_mock.called
 
 
 @mark.asyncio
@@ -92,4 +92,4 @@ async def test_get_logo_url_when_there_is_no_cache_and_logo_does_not_exists(
         )
     assert cache_mock.called
     assert logo_exists_mock.called
-    assert generate_url_mock.not_called
+    assert not generate_url_mock.called

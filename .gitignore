@@ -65,3 +65,6 @@ configure.sh
 remove_fission.sh
 run.sh
 set_variables.sh
+
+
+mutation_tests_reports/
