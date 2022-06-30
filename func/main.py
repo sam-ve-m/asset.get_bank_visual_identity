@@ -23,7 +23,7 @@ async def get_bank_logo(request: Request = request) -> Response:
             result=bank_logo_link,
             success=True,
             code=InternalCode.SUCCESS,
-            message="Symbols successfully saved",
+            message="Success",
         ).build_http_response(status=HTTPStatus.OK)
         return response
 
