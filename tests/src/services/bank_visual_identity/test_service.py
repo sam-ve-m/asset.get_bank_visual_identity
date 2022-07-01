@@ -23,7 +23,8 @@ async def test_get_bank_logo(get_url_mock):
     assert result == url_return_value
 
 
-def test_get_logo_path():
+def test_get_logo_path(monkeypatch):
+    monkeypatch.setattr(BankVisualIdentityService, "_BankVisualIdentityService__images_folder", "banks")
     expected_result = f"banks/79/logo.png"
     result = BankVisualIdentityService._BankVisualIdentityService__get_logo_path("79")
     assert result == expected_result
