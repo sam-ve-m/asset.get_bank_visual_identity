@@ -5,7 +5,7 @@ from flask import request, Request, Response
 
 from src.domain.enums.response.code import InternalCode
 from src.domain.exceptions.model import ImageNotFound
-from src.domain.models.request.model import BankCodeModel
+from src.domain.models.request.model import BankVisualIdentityModel
 from src.domain.models.response.model import ResponseModel
 from src.services.bank_visual_identity.service import BankVisualIdentityService
 
@@ -14,7 +14,7 @@ async def get_bank_logo(request: Request = request) -> Response:
     raw_params = request.args.to_dict()
 
     try:
-        bank_code = BankCodeModel(**raw_params)
+        bank_code = BankVisualIdentityModel(**raw_params)
         bank_logo_link = await BankVisualIdentityService.get_bank_logo(
             bank_code=bank_code
         )

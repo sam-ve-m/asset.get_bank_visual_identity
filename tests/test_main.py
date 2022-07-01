@@ -9,8 +9,13 @@ from main import get_bank_logo
 from src.domain.exceptions.model import ImageNotFound
 from src.services.bank_visual_identity.service import BankVisualIdentityService
 
-request_ok = "?bank_code=79"
-requests_invalid = ["?bank_cod=79", "?bank_code=a", "?bank_code=-1"]
+request_ok = "?bank_code=79&type=logo"
+requests_invalid = [
+    "?bank_cod=79&type=logo",
+    "?bank_code=a&type=logo",
+    "?bank_code=-1&type=logo",
+    "?bank_code=79&type=log",
+]
 
 
 @mark.asyncio

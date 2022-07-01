@@ -1,8 +1,10 @@
 from pydantic import BaseModel, validator
+from src.domain.enums.file.file_type import ImageType
 
 
-class BankCodeModel(BaseModel):
+class BankVisualIdentityModel(BaseModel):
     bank_code: int
+    type: ImageType
 
     @validator("bank_code")
     def validate_bank_code(cls, bank_code):

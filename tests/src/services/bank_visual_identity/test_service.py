@@ -1,7 +1,7 @@
 import pytest
 
 from src.domain.exceptions.model import ImageNotFound
-from src.domain.models.request.model import BankCodeModel
+from src.domain.models.request.model import BankVisualIdentityModel
 from src.repositories.bank_visual_identity.repository import (
     BankVisualIdentityRepository,
 )
@@ -10,7 +10,7 @@ from src.services.bank_visual_identity.service import BankVisualIdentityService
 from unittest.mock import patch
 from pytest import mark
 
-bank_code_model_dummy = BankCodeModel(bank_code=79)
+bank_code_model_dummy = BankVisualIdentityModel(bank_code=79, type="logo")
 
 
 @mark.asyncio

@@ -3,7 +3,7 @@ from etria_logger import Gladsheim
 
 from src.domain.enums.file.extension import FileExtension
 from src.domain.exceptions.model import ImageNotFound
-from src.domain.models.request.model import BankCodeModel
+from src.domain.models.request.model import BankVisualIdentityModel
 from src.repositories.bank_visual_identity.repository import (
     BankVisualIdentityRepository,
 )
@@ -14,14 +14,14 @@ class BankVisualIdentityService:
     __images_folder = config("BUCKET_IMAGES_FOLDER")
 
     @classmethod
-    async def get_bank_logo(cls, bank_code: BankCodeModel):
+    async def get_bank_logo(cls, bank_code: BankVisualIdentityModel):
         code = str(bank_code.bank_code)
         logo_url = await cls.__get_logo_url(code)
         return logo_url
 
     @classmethod
     def __get_logo_path(cls, bank_code: str) -> str:
-        path = f"{cls.__images_folder}/{bank_code}/logo.{FileExtension.logo.value}"
+        path = f"{cls.__images_folder}/{bank_code}/logo.{FileExtension.LOGO.value}"
         return path
 
     @classmethod
