@@ -1,0 +1,55 @@
+include:
+- ./func/*
+kind: ArchiveUploadSpec
+name: func-SAh4
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: fn-get-bank-logo-9dd34259-db5d-411e-8e83-e879b44d8e56
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: env-get-bank-logo
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://func-SAh4
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2022-07-05T11:55:47Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: fn-get-bank-logo
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: newdeploy
+      MaxScale: 1
+      MinScale: 1
+      SpecializationTimeout: 120
+      TargetCPUPercent: 80
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: env-get-bank-logo
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: main.get_bank_logo
+    packageref:
+      name: fn-get-bank-logo-9dd34259-db5d-411e-8e83-e879b44d8e56
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

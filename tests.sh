@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Need pytest installed (pip install pytest)
 echo "Starting tests."
 mkdir testing || { echo "ERROR: Failed to create test execution folder. [FINISHING SCRIPT]"; exit; }
