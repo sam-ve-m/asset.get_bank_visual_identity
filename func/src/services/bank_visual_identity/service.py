@@ -1,13 +1,13 @@
 from decouple import config
 from etria_logger import Gladsheim
 
-from src.domain.enums.file.extension import FileExtension
-from src.domain.exceptions.model import ImageNotFound
-from src.domain.models.request.model import BankVisualIdentityModel
-from src.repositories.bank_visual_identity.repository import (
+from func.src.domain.enums.file.extension import FileExtension
+from func.src.domain.exceptions.model import ImageNotFound
+from func.src.domain.models.request.model import BankVisualIdentityModel
+from func.src.repositories.bank_visual_identity.repository import (
     BankVisualIdentityRepository,
 )
-from src.repositories.cache.repository import CacheRepository
+from func.src.repositories.cache.repository import CacheRepository
 
 
 class BankVisualIdentityService:

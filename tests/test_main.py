@@ -4,10 +4,17 @@ from etria_logger import Gladsheim
 from flask import Flask
 from pytest import mark
 from werkzeug.test import Headers
+from decouple import RepositoryEnv, Config
+import logging.config
 
-from main import get_bank_logo
-from src.domain.exceptions.model import ImageNotFound
-from src.services.bank_visual_identity.service import BankVisualIdentityService
+
+with patch.object(RepositoryEnv, "__init__", return_value=None):
+    with patch.object(Config, "__init__", return_value=None):
+        with patch.object(Config, "__call__"):
+            with patch.object(logging.config, "dictConfig"):
+                from func.main import get_bank_logo
+                from func.src.domain.exceptions.model import ImageNotFound
+                from func.src.services.bank_visual_identity.service import BankVisualIdentityService
 
 request_ok = "?bank_code=79&type=logo"
 requests_invalid = [

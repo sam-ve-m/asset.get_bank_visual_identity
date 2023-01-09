@@ -2,7 +2,7 @@ from decouple import config
 from etria_logger import Gladsheim
 from mnemosine import SyncCache
 
-from src.core.interfaces.repositories.cache.interface import (
+from func.src.core.interfaces.repositories.cache.interface import (
     ICacheRepository,
 )
 

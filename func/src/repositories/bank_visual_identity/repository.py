@@ -1,9 +1,9 @@
 from decouple import config
 
-from src.core.interfaces.repositories.bank_visual_identity.interface import (
+from func.src.core.interfaces.repositories.bank_visual_identity.interface import (
     IBankVisualIdentityRepository,
 )
-from src.infrastructures.s3.s3 import S3Infrastructure
+from func.src.infrastructures.s3.s3 import S3Infrastructure
 
 
 class BankVisualIdentityRepository(IBankVisualIdentityRepository):

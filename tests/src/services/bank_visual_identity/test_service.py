@@ -1,12 +1,12 @@
 import pytest
 
-from src.domain.exceptions.model import ImageNotFound
-from src.domain.models.request.model import BankVisualIdentityModel
-from src.repositories.bank_visual_identity.repository import (
+from func.src.domain.exceptions.model import ImageNotFound
+from func.src.domain.models.request.model import BankVisualIdentityModel
+from func.src.repositories.bank_visual_identity.repository import (
     BankVisualIdentityRepository,
 )
-from src.repositories.cache.repository import CacheRepository
-from src.services.bank_visual_identity.service import BankVisualIdentityService
+from func.src.repositories.cache.repository import CacheRepository
+from func.src.services.bank_visual_identity.service import BankVisualIdentityService
 from unittest.mock import patch
 from pytest import mark
 

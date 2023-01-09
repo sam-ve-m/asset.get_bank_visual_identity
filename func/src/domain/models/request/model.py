@@ -1,5 +1,5 @@
 from pydantic import BaseModel, validator
-from src.domain.enums.file.file_type import ImageType
+from func.src.domain.enums.file.file_type import ImageType
 
 
 class BankVisualIdentityModel(BaseModel):
