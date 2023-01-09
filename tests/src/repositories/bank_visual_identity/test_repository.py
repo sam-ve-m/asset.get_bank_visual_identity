@@ -2,8 +2,8 @@ from unittest.mock import patch, AsyncMock, MagicMock
 
 from pytest import mark
 
-from src.infrastructures.s3.s3 import S3Infrastructure
-from src.repositories.bank_visual_identity.repository import (
+from func.src.infrastructures.s3.s3 import S3Infrastructure
+from func.src.repositories.bank_visual_identity.repository import (
     BankVisualIdentityRepository,
 )
 

@@ -3,11 +3,11 @@ from http import HTTPStatus
 from etria_logger import Gladsheim
 from flask import request, Request, Response
 
-from src.domain.enums.response.code import InternalCode
-from src.domain.exceptions.model import ImageNotFound
-from src.domain.models.request.model import BankVisualIdentityModel
-from src.domain.models.response.model import ResponseModel
-from src.services.bank_visual_identity.service import BankVisualIdentityService
+from func.src.domain.enums.response.code import InternalCode
+from func.src.domain.exceptions.model import ImageNotFound
+from func.src.domain.models.request.model import BankVisualIdentityModel
+from func.src.domain.models.response.model import ResponseModel
+from func.src.services.bank_visual_identity.service import BankVisualIdentityService
 
 
 async def get_bank_logo(request: Request = request) -> Response:

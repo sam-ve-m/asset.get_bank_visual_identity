@@ -4,7 +4,7 @@ import pytest
 from etria_logger import Gladsheim
 from mnemosine import SyncCache
 
-from src.repositories.cache.repository import CacheRepository
+from func.src.repositories.cache.repository import CacheRepository
 
 
 @patch.object(SyncCache, "save")

@@ -1,55 +1,61 @@
 include:
-- ./func/*
+- fission.py
 kind: ArchiveUploadSpec
-name: func-SAh4
+name: fission-py-RHQv
 
 ---
 apiVersion: fission.io/v1
 kind: Package
 metadata:
   creationTimestamp: null
-  name: fn-get-bank-logo-9dd34259-db5d-411e-8e83-e879b44d8e56
+  name: asset-visual-bank-fn-3ec7b91f-bef1-4185-bb56-c12f1851a26a
   namespace: default
 spec:
   deployment:
     checksum: {}
+    type: url
+    url: archive://fission-py-RHQv
   environment:
-    name: env-get-bank-logo
+    name: asset-visual-bank-env
     namespace: default
   source:
     checksum: {}
-    type: url
-    url: archive://func-SAh4
 status:
-  buildstatus: pending
-  lastUpdateTimestamp: "2022-07-05T11:55:47Z"
+  buildstatus: none
+  lastUpdateTimestamp: "2023-01-09T13:37:16Z"
 
 ---
 apiVersion: fission.io/v1
 kind: Function
 metadata:
   creationTimestamp: null
-  name: fn-get-bank-logo
+  name: asset-visual-bank-fn
   namespace: default
 spec:
   InvokeStrategy:
     ExecutionStrategy:
       ExecutorType: newdeploy
-      MaxScale: 1
+      MaxScale: 3
       MinScale: 1
       SpecializationTimeout: 120
-      TargetCPUPercent: 80
+      TargetCPUPercent: 0
+      hpaMetrics:
+      - resource:
+          name: cpu
+          target:
+            averageUtilization: 80
+            type: Utilization
+        type: Resource
     StrategyType: execution
   concurrency: 500
   environment:
-    name: env-get-bank-logo
+    name: asset-visual-bank-env
     namespace: default
   functionTimeout: 60
   idletimeout: 120
   package:
-    functionName: main.get_bank_logo
     packageref:
-      name: fn-get-bank-logo-9dd34259-db5d-411e-8e83-e879b44d8e56
+      name: asset-visual-bank-fn-3ec7b91f-bef1-4185-bb56-c12f1851a26a
       namespace: default
-  requestsPerPod: 1
+  requestsPerPod: 10000
   resources: {}

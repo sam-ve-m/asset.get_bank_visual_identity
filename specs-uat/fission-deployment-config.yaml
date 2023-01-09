@@ -4,4 +4,4 @@
 apiVersion: fission.io/v1
 kind: DeploymentConfig
 name: asset-get-bank-visual-identity
-uid: 2cabdc3f-185c-4981-978a-635ac2931911
+uid: c38171d3-6f94-453c-9c68-e07b7fe32bc6
